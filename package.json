@@ -4,6 +4,7 @@
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@chromatic-com/storybook": "^3.2.6",
+    "@codynog/csv-i18n": "^2025.4.1",
     "@happy-dom/global-registrator": "^17.4.4",
     "@markuplint/jsx-parser": "^4.7.18",
     "@markuplint/react-spec": "^4.5.18",
@@ -18,8 +19,7 @@
     "@tanstack/react-query-devtools": "^5.71.5",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.14.0",
-    "@types/react": "^19.1.0",
-    "@types/react-dom": "^19.1.1",
+    "@types/react": "^18.3.21",
     "cspell": "^8.18.1",
     "happy-dom": "^17.4.4",
     "http-server": "^14.1.1",
@@ -30,8 +30,6 @@
     "only-allow": "^1.2.1",
     "papaparse": "^5.5.2",
     "plop": "^4.0.1",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
     "storybook": "8.6.12",
     "storybook-css-modules": "^1.0.8",
     "typescript": "^5.8.2",
@@ -45,7 +43,9 @@
   },
   "scripts": {
     "preinstall": "npx only-allow npm",
-    "postinstall": "npm run gen && [ '$CI' != 'true' ] && npx @codynog/ai-rules",
+    "postinstall": "npm run gen && [ '$CI' != 'true' ] && npm run postinstall:local",
+    "postinstall:ci": "",
+    "postinstall:local": "npm run gen && npx @codynog/ai-rules",
     "check-dependencies": "knip",
     "lint": "run-p lint:*",
     "lint:script": "biome check .",
@@ -54,30 +54,16 @@
     "format": "biome check --write .",
     "test": "npm test --workspaces --if-present",
     "gen": "run-p gen:*",
-    "gen:i18n": "node i18n/index.js",
+    "gen:i18n": "csv-i18n --input i18n --output packages/gen/i18n",
+    "gen:ui": "npx @codynog/cody-ui --output ./packages/ui",
     "knip": "knip",
     "build-check": "npm run build-check --workspaces --if-present",
     "update": "npm-check-updates -u && npm run update --workspaces --if-present",
-    "app:dev": "npm run dev --workspace=app",
-    "app:build": "npm run build --workspace=app",
-    "app:start": "npm run start --workspace=app",
-    "app:test": "npm run test --workspace=app",
-    "app:plop": "npm run plop --workspace=app",
-    "app:update": "npm run update --workspace=app",
-    "server:dev": "npm run dev --workspace=server",
-    "server:build": "npm run build --workspace=server",
-    "server:start": "npm run start --workspace=server",
-    "server:test": "npm run test --workspace=server",
-    "server:plop": "npm run plop --workspace=server",
-    "shared:build": "npm run build --workspace=shared",
-    "shared:test": "npm run test --workspace=shared",
-    "shared:plop": "npm run plop --workspace=shared",
-    "shared:update": "npm run update --workspace=shared",
-    "shared:db:generate": "npm run db:generate --workspace=shared",
-    "shared:db:push": "npm run db:push --workspace=shared",
-    "shared:db:migrate": "npm run db:migrate --workspace=shared",
-    "shared:db:seed": "npm run db:seed --workspace=shared",
-    "agent:dev": "npm run dev --workspace=agent"
+    "app": "npm run --workspace=app",
+    "shared": "npm run --workspace=shared",
+    "server": "npm run --workspace=server",
+    "sandbox": "npm run --workspace=sandbox",
+    "ui": "npm run --workspace=ui"
   },
   "type": "module",
   "workspaces": [
@@ -86,5 +72,9 @@
   "dependencies": {
     "@tanstack/react-query": "^5.71.5",
     "zod": "^3.24.2"
+  },
+  "overrides": {
+    "react": "0.0.0-experimental-740a4f7a-20250325",
+    "react-dom": "0.0.0-experimental-740a4f7a-20250325"
   }
 }

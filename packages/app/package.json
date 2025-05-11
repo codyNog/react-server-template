@@ -1,38 +1,15 @@
 {
   "name": "app",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "npx next dev & node ../../i18n/watcher.js",
-    "build": "npx next build",
-    "build-check": "tsc --noEmit",
-    "start": "npx next start",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build --quiet",
-    "test-storybook": "run-p --race test-storybook:*",
-    "test-storybook:setup": "http-server storybook-static -p 6006 --silent",
-    "test-storybook:execute": "wait-on tcp:6006 && test-storybook",
-    "test": "echo \"Error: no test specified in app package\" && exit 1",
-    "plop": "plop",
-    "postplop": "biome format --write .",
-    "update": "npm-check-updates -u",
-    "watch:i18n": "node ../../i18n/watcher.js"
+    "dev": "react-server",
+    "build": "react-server build",
+    "start": "react-server start",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@conform-to/react": "^1.3.0",
-    "@conform-to/zod": "^1.3.0",
-    "date-fns": "^4.1.0",
-    "date-fns-tz": "^3.2.0",
-    "gen": "*",
-    "next": "^15.2.4",
-    "next-auth": "^5.0.0-beta.22",
-    "next-international": "^1.3.1",
-    "next-safe-action": "^7.10.4",
-    "shared": "*",
-    "use-debounce": "^10.0.4",
-    "uuid": "^11.1.0"
-  },
-  "devDependencies": {
-    "@next/bundle-analyzer": "^15.2.4"
+    "@lazarv/react-server": "0.0.0-experimental-3924ff5-20250501-64e8d9fb"
   }
 }

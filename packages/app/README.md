@@ -1,25 +1,35 @@
-# app
+This is a [@lazarv/react-server](https://react-server.dev) project bootstrapped with [`create-react-server`](https://react-server.dev/guide/quick-start).
 
-This directory contains web application by Next.js.  
+## Getting Started
 
-## dev
+First, run the development server:
 
-```bash
+```sh
 npm run dev
 ```
 
-## plop
+Use the `--open` flag, the development server command menu or navigate to [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Generate code in bulk with `npm run plop {{action}}`.
-For detailed execution, refer to [plop-templates](./plop-templates/README.md).
+You can start editing the page by modifying ``. The page auto-updates as you edit the file.
 
-## bundle analyzer
+## Build
 
-The following line should be added to the .env file.
+To build the application for production, run:
 
-```bash
-ANALYZE=true
+```sh
+npm run build
 ```
 
-and `@next/bundle-analyzer` is enabled.  
-When running build, analyzer will boot up.
+The build output will be in the `.react-server` directory.
+
+To run the production server, run:
+
+```sh
+npm start start
+```
+
+## Learn More
+
+To learn more about [@lazarv/react-server](https://react-server.dev), take a look at the documentation or search the documentation using the development server.
+
+You can check out framework on [GitHub](https://github.com/lazarv/react-server) - your feedback and contributions are welcome!

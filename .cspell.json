@@ -3,7 +3,6 @@
   "language": "en",
   "ignorePaths": [
     "**/node_modules/**",
-    "bun.lockb",
     "cspell.json",
     "package.json",
     "**.stories.tsx",
@@ -19,7 +18,6 @@
   "dictionaryDefinitions": [],
   "ignoreRegExpList": ["/\\d+\\.\\d+\\.\\d+/"],
   "ignoreWords": [
-    "bun",
     "workspace",
     "GlobalRegistrator",
     "registrator",

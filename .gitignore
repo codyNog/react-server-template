@@ -189,5 +189,9 @@ packages/gen
 
 # ai-rules
 .clinerules
+.cursor/rules
+.github/copilot-instructions.md
+.roo/rules**
 .cursorrules
 .ai-rules-version.json
+.roomodes
