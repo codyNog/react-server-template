@@ -187,6 +187,10 @@ dist
 
 packages/gen
 
+# packages/ui
+
+packages/ui
+
 # ai-rules
 .clinerules
 .cursor/rules
@@ -195,3 +199,6 @@ packages/gen
 .cursorrules
 .ai-rules-version.json
 .roomodes
+
+# ui
+.ui-version.json

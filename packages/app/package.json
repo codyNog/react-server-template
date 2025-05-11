@@ -7,7 +7,8 @@
     "dev": "react-server",
     "build": "react-server build",
     "start": "react-server start",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "plop": "plop"
   },
   "dependencies": {
     "@lazarv/react-server": "0.0.0-experimental-3924ff5-20250501-64e8d9fb"
