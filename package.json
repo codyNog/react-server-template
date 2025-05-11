@@ -42,7 +42,7 @@
   },
   "scripts": {
     "preinstall": "npx only-allow npm",
-    "postinstall": "npm run gen && npm run extract-ui && [ '$CI' != 'true' ] && npm run postinstall:local",
+    "postinstall": "npm run gen && [ '$CI' != 'true' ] && npm run postinstall:local",
     "postinstall:ci": "",
     "postinstall:local": "npm run gen && npx @codynog/ai-rules",
     "check-dependencies": "knip",
